@@ -15,7 +15,7 @@ const Card = ({ width, height, bg, onPress, children }) => {
 Card.defaultProps = {
   width: 120,
   height: 120,
-  bg: 'tomato',
+  bg: '#fff',
 };
 
 Card.propTypes = {
