@@ -2,25 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, Text } from 'react-native';
 import styled from 'styled-components/native';
-
-const ButtonWrapper = styled(TouchableOpacity)`
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
-  background-color: ${({ bg }) => bg};
-  justify-content: center;
-  align-items: center;
-`;
-
-const ButtonText = styled(Text)`
-  font-size: 14px;
-  font-weight: 500;
-  color: ${({ color }) => color};
-`;
+import size from '../../utils/size';
+import font from '../../utils/font';
 
 const Button = ({ width = 80, height = 24, bg, text, color, onPress }) => {
   return (
     <ButtonWrapper width={width} height={height} bg={bg} onPress={onPress}>
-      <ButtonText color={color || '#242424'}>{text}</ButtonText>
+      <ButtonText color={color}>{text}</ButtonText>
     </ButtonWrapper>
   );
 };
@@ -42,3 +30,17 @@ Button.propTypes = {
 };
 
 export default Button;
+
+const ButtonWrapper = styled(TouchableOpacity)(props => ({
+  width: props.width,
+  height: props.height,
+  backgroundColor: props.bg,
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
+const ButtonText = styled(Text)(props => ({
+  color: props.color,
+  fontSize: font(12),
+  fontWeight: 500,
+}));

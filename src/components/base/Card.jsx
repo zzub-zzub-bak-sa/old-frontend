@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
+import size from '../../utils/size';
 
 const Card = ({ width, height, bg, onPress, children }) => {
   return (
@@ -27,8 +28,8 @@ Card.propTypes = {
 
 export default Card;
 
-const CardWrapper = styled(TouchableOpacity)`
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
-  background-color: ${({ bg }) => bg};
-`;
+const CardWrapper = styled(TouchableOpacity)(props => ({
+  width: props.width,
+  height: props.height,
+  backgroundColor: props.bg,
+}));

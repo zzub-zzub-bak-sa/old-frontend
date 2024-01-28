@@ -2,6 +2,7 @@ import { PropTypes } from 'prop-types';
 import React from 'react';
 import { TextInput } from 'react-native';
 import styled from 'styled-components';
+import font from '../../utils/font';
 
 const InputField = ({ placeholder, value, onChangeValue, color, placeholderColor, bg }) => {
   return (
@@ -33,7 +34,8 @@ InputField.propTypes = {
 
 export default InputField;
 
-const Input = styled(TextInput)`
-  color: ${({ color }) => color};
-  background-color: ${({ bg }) => bg};
-`;
+const Input = styled(TextInput)(props => ({
+  color: props.color,
+  backgroundColor: props.bg,
+  fontSize: font(12),
+}));

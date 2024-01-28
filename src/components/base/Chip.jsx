@@ -1,6 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import styled from 'styled-components';
+import size from '../../utils/size';
+import PropTypes from 'prop-types';
 
 const Chip = ({ text, width, height, radius, bgColor, textColor, onPressChip, style }) => {
   return (
@@ -30,18 +32,17 @@ Chip.propTypes = {
 
 export default Chip;
 
-const ChipWrapper = styled(TouchableOpacity)`
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
-  border-radius: ${({ radius }) => radius}px;
-  border: 1px solid black;
-  background-color: ${({ bgColor }) => bgColor || 'white'};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: 'blue';
-  ${props => props.style}
-`;
+const ChipWrapper = styled(TouchableOpacity)(props => ({
+  width: props.width,
+  height: props.height,
+  borderRadius: props.radius,
+  backgroundCOlor: props.bgColor,
+  border: `1px solid black`,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  ...props.style,
+}));
 
 const ChipText = styled(Text)`
   color: ${({ textColor }) => textColor};
