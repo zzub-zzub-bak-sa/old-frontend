@@ -2,7 +2,6 @@ import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import styled from 'styled-components';
 import size from '../../utils/size';
-import PropTypes from 'prop-types';
 
 const Chip = ({ text, width, height, radius, bgColor, textColor, onPressChip, style }) => {
   return (
@@ -19,23 +18,12 @@ const Chip = ({ text, width, height, radius, bgColor, textColor, onPressChip, st
   );
 };
 
-Chip.propTypes = {
-  text: PropTypes.string.isRequired,
-  onPressChip: PropTypes.func.isRequired,
-  style: PropTypes.object,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  radius: PropTypes.number,
-  bgColor: PropTypes.string,
-  textColor: PropTypes.string,
-};
-
 export default Chip;
 
 const ChipWrapper = styled(TouchableOpacity)(props => ({
-  width: props.width,
-  height: props.height,
-  borderRadius: props.radius,
+  width: size.width * props.width,
+  height: size.height * props.height,
+  borderRadius: size.height * props.radius,
   backgroundCOlor: props.bgColor,
   border: `1px solid black`,
   display: 'flex',

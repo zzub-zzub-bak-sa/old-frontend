@@ -1,4 +1,3 @@
-import { PropTypes } from 'prop-types';
 import React from 'react';
 import { TextInput } from 'react-native';
 import styled from 'styled-components';
@@ -15,21 +14,6 @@ const InputField = ({ placeholder, value, onChangeValue, color, placeholderColor
       bg={bg}
     />
   );
-};
-
-InputField.defaultProps = {
-  color: '#242424',
-  placeholderColor: '#242424',
-  bg: 'tomato',
-};
-
-InputField.propTypes = {
-  placeholder: PropTypes.string.isRequired,
-  placeholderColor: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]).isRequired,
-  onChangeValue: PropTypes.func.isRequired,
-  color: PropTypes.string,
-  bg: PropTypes.string,
 };
 
 export default InputField;
