@@ -5,7 +5,7 @@ import size from '../../../utils/size';
 
 const CommonModal = ({
   showModal,
-  setShowModal,
+  onClose,
   children,
   width = 80,
   height = 20,
