@@ -8,12 +8,20 @@ const StyledBottomSheetScrollView = styled(OriginalBottomSheetScrollView)`
   flex: 1;
 `;
 
-const CommonBottomSheet = forwardRef(({ snapPoints = ['30%', '50%'], children, index }, ref) => {
-  return (
-    <BottomSheet ref={ref} index={index} snapPoints={snapPoints} enablePanDownToClose={true}>
-      <StyledBottomSheetScrollView>{children}</StyledBottomSheetScrollView>
-    </BottomSheet>
-  );
-});
+const CommonBottomSheet = forwardRef(
+  ({ snapPoints = ['30%', '50%'], children, index, style }, ref) => {
+    return (
+      <BottomSheet
+        ref={ref}
+        index={index}
+        snapPoints={snapPoints}
+        enablePanDownToClose={true}
+        style={style}
+      >
+        <StyledBottomSheetScrollView>{children}</StyledBottomSheetScrollView>
+      </BottomSheet>
+    );
+  },
+);
 
 export default CommonBottomSheet;
