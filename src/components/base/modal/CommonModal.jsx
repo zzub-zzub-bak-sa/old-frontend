@@ -17,9 +17,9 @@ const CommonModal = ({
       animationType="fade"
       transparent={true}
       visible={showModal}
-      onRequestClose={() => setShowModal(!showModal)}
+      onRequestClose={onClose}
     >
-      <ModalWrapper onPressOut={() => setShowModal(false)} style={style}>
+      <ModalWrapper onPressOut={onClose} style={style}>
         <ModalContent width={width} height={height} bg={bg}>
           <View style={{ alignItems: 'center' }}>{children}</View>
         </ModalContent>
