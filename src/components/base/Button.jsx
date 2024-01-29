@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import size from '../../utils/size';
 import font from '../../utils/font';
 
-const Button = ({ width = 80, height = 24, bg, text, color, onPress }) => {
+const Button = ({ width = 80, height = 24, bgColor, text, color, onPress }) => {
   return (
     <ButtonWrapper width={width} height={height} bg={bg} onPress={onPress}>
       <ButtonText color={color}>{text}</ButtonText>
@@ -14,13 +14,13 @@ const Button = ({ width = 80, height = 24, bg, text, color, onPress }) => {
 
 export default Button;
 
-const ButtonWrapper = styled(TouchableOpacity)(props => ({
-  width: size.width * props.width,
-  height: size.height * props.height,
-  backgroundColor: props.bg,
-  justifyContent: 'center',
-  alignItems: 'center',
-}));
+const ButtonWrapper = styled(TouchableOpacity)`
+  width: ${({ width }) => size.width * width}%;
+  height: ${({ height }) => size.height * height}%;
+  background-color: ${({ bgColor }) => bgColor};
+  justify-content: center;
+  align-items: center;
+`;
 
 const ButtonText = styled(Text)(props => ({
   color: props.color,

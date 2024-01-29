@@ -21,9 +21,9 @@ const Chip = ({ text, width, height, radius, bgColor, textColor, onPressChip, st
 export default Chip;
 
 const ChipWrapper = styled(TouchableOpacity)`
-  width: ${({ width }) => size.width * width}px;
-  height: ${({ height }) => size.height * height}px;
-  border-radius: ${({ radius }) => size.height * radius}px;
+  width: ${({ width }) => size.width * width}%;
+  height: ${({ height }) => size.height * height}%;
+  border-radius: ${({ radius }) => size.height * radius};
   background-color: ${({ bgColor }) => bgColor};
   display: flex;
   justify-content: center;

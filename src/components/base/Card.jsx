@@ -18,8 +18,8 @@ const Card = ({ width = 80, height = 80, bgColor, onPress, renderTop, renderBott
 export default Card;
 
 const CardWrapper = styled(TouchableOpacity)`
-  width: ${({ width }) => size.width * width}px;
-  height: ${({ height }) => size.height * height}px;
+  width: ${({ width }) => size.width * width}%;
+  height: ${({ height }) => size.height * height}%;
   background-color: ${({ bgColor }) => bgColor};
 `;
 
