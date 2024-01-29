@@ -3,7 +3,15 @@ import { Modal, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 import size from '../../../utils/size';
 
-const CommonModal = ({ showModal, setShowModal, children, width, height, bg, style }) => {
+const CommonModal = ({
+  showModal,
+  setShowModal,
+  children,
+  width = 80,
+  height = 20,
+  bg = 'white',
+  style,
+}) => {
   return (
     <Modal
       animationType="fade"
@@ -12,13 +20,7 @@ const CommonModal = ({ showModal, setShowModal, children, width, height, bg, sty
       onRequestClose={() => setShowModal(!showModal)}
     >
       <ModalWrapper onPressOut={() => setShowModal(false)} style={style}>
-        <ModalContent
-          width={width || 80}
-          height={height || 50}
-          bg={bg}
-          onStartShouldSetResponder={() => true}
-          onResponderRelease={e => e.stopPropagation()}
-        >
+        <ModalContent width={width} height={height} bg={bg}>
           <View style={{ alignItems: 'center' }}>{children}</View>
         </ModalContent>
       </ModalWrapper>
@@ -35,11 +37,11 @@ const ModalWrapper = styled(TouchableOpacity)`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
-const ModalContent = styled(View)(props => ({
-  width: size.width * props.width,
-  height: size.height * props.height,
-  backgroundColor: props.bg,
-  justifyContent: 'center',
-  alignItems: 'center',
-  ...props.style,
-}));
+const ModalContent = styled(View)`
+  width: ${props => size.width * props.width}%;
+  height: ${props => size.height * props.height}%;
+  background-color: ${props => props.bg};
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+`;
