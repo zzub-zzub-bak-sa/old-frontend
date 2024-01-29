@@ -3,23 +3,13 @@ import { TouchableOpacity, View, Text, Image } from 'react-native';
 import styled from 'styled-components';
 import size from '../../utils/size';
 
-const Card = ({ width = 80, height = 80, bgColor, onPress }) => {
-  const topAndBottomHeight = size.height * 2;
-  const middleHeight = size.height * height - topAndBottomHeight;
-
+const Card = ({ width = 80, height = 80, bgColor, onPress, renderTop, renderBottom }) => {
   return (
     <CardWrapper width={width} height={height} bgColor={bgColor} onPress={onPress}>
       <ImageBox source={{ uri: undefined }} />
       <SectionWrapper>
-        <Top>
-          <Text>top</Text>
-        </Top>
-        <Middle height={middleHeight}>
-          <Text>middle</Text>
-        </Middle>
-        <Bottom>
-          <Text>bottom</Text>
-        </Bottom>
+        <Top>{renderTop()}</Top>
+        <Bottom>{renderBottom()}</Bottom>
       </SectionWrapper>
     </CardWrapper>
   );
@@ -49,13 +39,6 @@ const Top = styled(View)({
   position: 'absolute',
   top: 0,
 });
-
-const Middle = styled(View)(props => ({
-  width: '100%',
-  position: 'absolute',
-  top: size.height * 14.8 + 'px',
-  height: props.height - 15,
-}));
 
 const Bottom = styled(View)({
   width: '100%',
