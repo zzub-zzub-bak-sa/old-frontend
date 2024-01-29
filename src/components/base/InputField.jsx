@@ -3,7 +3,15 @@ import { TextInput } from 'react-native';
 import styled from 'styled-components';
 import font from '../../utils/font';
 
-const InputField = ({ placeholder, value, onChangeValue, color, placeholderColor, bg, style }) => {
+const InputField = ({
+  placeholder,
+  value,
+  onChangeValue,
+  color,
+  placeholderColor,
+  bgColor,
+  style,
+}) => {
   return (
     <Input
       placeholder={placeholder}
@@ -11,7 +19,7 @@ const InputField = ({ placeholder, value, onChangeValue, color, placeholderColor
       value={value}
       onChangeText={text => onChangeValue(text)}
       color={color}
-      bg={bg}
+      bgColor={bgColor}
       style={style}
     />
   );

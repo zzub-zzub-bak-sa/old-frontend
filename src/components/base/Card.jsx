@@ -17,31 +17,31 @@ const Card = ({ width = 80, height = 80, bgColor, onPress, renderTop, renderBott
 
 export default Card;
 
-const CardWrapper = styled(TouchableOpacity)(props => ({
-  width: size.width * props.width,
-  height: size.height * props.height,
-  backgroundColor: props.bgColor,
-}));
+const CardWrapper = styled(TouchableOpacity)`
+  width: ${({ width }) => size.width * width}px;
+  height: ${({ height }) => size.height * height}px;
+  background-color: ${({ bgColor }) => bgColor};
+`;
 
-const ImageBox = styled(Image)({
-  width: '100%',
-  height: '100%',
-});
+const ImageBox = styled(Image)`
+  width: '100%';
+  height: '100%';
+`;
 
-const SectionWrapper = styled(View)({
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-});
+const SectionWrapper = styled(View)`
+  position: 'absolute';
+  width: '100%';
+  height: '100%';
+`;
 
-const Top = styled(View)({
-  width: '100%',
-  position: 'absolute',
-  top: 0,
-});
+const Top = styled(View)`
+  width: '100%';
+  position: 'absolute';
+  top: 0;
+`;
 
-const Bottom = styled(View)({
-  width: '100%',
-  position: 'absolute',
-  bottom: size.height * 0 + 'px',
-});
+const Bottom = styled(View)`
+  width: '100%';
+  position: 'absolute';
+  bottom: 0 + 'px';
+`;

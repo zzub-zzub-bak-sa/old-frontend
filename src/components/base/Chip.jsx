@@ -20,16 +20,16 @@ const Chip = ({ text, width, height, radius, bgColor, textColor, onPressChip, st
 
 export default Chip;
 
-const ChipWrapper = styled(TouchableOpacity)(props => ({
-  width: size.width * props.width,
-  height: size.height * props.height,
-  borderRadius: size.height * props.radius,
-  backgroundColor: props.bgColor,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  ...props.style,
-}));
+const ChipWrapper = styled(TouchableOpacity)`
+  width: ${({ width }) => size.width * width}px;
+  height: ${({ height }) => size.height * height}px;
+  border-radius: ${({ radius }) => size.height * radius}px;
+  background-color: ${({ bgColor }) => bgColor};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${({ style }) => style};
+`;
 
 const ChipText = styled(Text)`
   color: ${({ textColor }) => textColor};
