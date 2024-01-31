@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Main" component={BottomTabNavigation} />
       {/* 다른 screen을 추가 */}
     </Stack.Navigator>
