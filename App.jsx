@@ -6,17 +6,17 @@ import StackNavigation from './src/navigations/StackNavigation';
 GestureHandlerRootView;
 import * as Font from 'expo-font';
 
+const getFont = async () => {
+  await Font.loadAsync({
+    semibold: require('./src/assets/fonts/SUIT-SemiBold.ttf'),
+    medium: require('./src/assets/fonts/SUIT-Medium.ttf'),
+    bold: require('./src/assets/fonts/SUIT-Bold.ttf'),
+    extrabold: require('./src/assets/fonts/SUIT-ExtraBold.ttf'),
+  });
+};
+
 function App() {
   useEffect(() => {
-    const getFont = async () => {
-      await Font.loadAsync({
-        semibold: require('./src/assets/fonts/SUIT-SemiBold.ttf'),
-        medium: require('./src/assets/fonts/SUIT-Medium.ttf'),
-        bold: require('./src/assets/fonts/SUIT-Bold.ttf'),
-        extrabold: require('./src/assets/fonts/SUIT-ExtraBold.ttf'),
-      });
-    };
-
     getFont();
   }, []);
 
