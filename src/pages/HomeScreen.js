@@ -1,21 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { title1 } from '../styles/fonts';
+import Layout from '../components/layout/Layout'
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
+    <Layout>
       <Text style={{ ...title1.bold }}>Gathered through Links</Text>
-    </View>
+    </Layout>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
