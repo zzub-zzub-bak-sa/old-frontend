@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-const IcClear = ({ size, color }) => {
+const IcBack = ({ size, color }) => {
   return (
     <Svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24">
       <Path
@@ -12,4 +12,4 @@ const IcClear = ({ size, color }) => {
   );
 };
 
-export default IcClear;
+export default IcBack;

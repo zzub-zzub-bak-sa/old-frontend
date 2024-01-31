@@ -29,11 +29,7 @@ const CommonBottomSheet = forwardRef(
         case 'none':
           return <ButtonImage />;
         case 'done':
-          return (
-            <ButtonImage onPress={onPress}>
-              <ButtonText>완료</ButtonText>
-            </ButtonImage>
-          );
+          return <ButtonText onPress={onPress}>완료</ButtonText>;
         case 'back':
           return (
             <ButtonImage onPress={onPress}>
@@ -89,7 +85,9 @@ const Title = styled.Text`
   text-align: center;
 `;
 
-const ButtonImage = styled(TouchableOpacity)``;
+const ButtonImage = styled(TouchableOpacity)`
+  width: ${size.width * 24}px;
+`;
 
 const ButtonText = styled.Text`
   color: white;
