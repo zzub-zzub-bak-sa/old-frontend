@@ -1,8 +1,8 @@
 import { WIDTH, HEIGHT } from '../constants/constants';
 
 const basicDimensions = {
-  width: 360,
-  height: 800,
+  width: 390,
+  height: 844,
 };
 
 const width = (WIDTH * (1 / basicDimensions.width)).toFixed(2);
