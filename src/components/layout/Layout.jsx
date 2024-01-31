@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
 export default Layout;
 
 const LayoutWrapper = styled(View)({
-  width: WIDTH - 40,
+  width: WIDTH - `${size.width * 20 * 2}`,
   height: HEIGHT,
   marginRight: `${size.width * 20}px`,
   marginLeft: `${size.width * 20}px`,
