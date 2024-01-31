@@ -1,29 +1,32 @@
 import React, { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { TextInput, View } from 'react-native';
 import styled from 'styled-components';
 import size from '../../utils/size';
 import { body1 } from '../../styles/fonts';
 import { colors } from '../../styles/colors';
-import { WIDTH } from '../../constants/constants';
 import Tags from './Tags';
 
 const InputField = ({ placeholder, value, onChangeValue, style }) => {
   const [tags, setTags] = useState([]);
 
-  const handleTag = () => {
+  const handleTagAdd = () => {
     setTags([...tags, value]);
     onChangeValue('');
     console.log(tags);
   };
 
+  const handleTagDelete = idx => {
+    setTags(tags.filter((_, i) => i !== idx));
+  };
+
   return (
     <Container>
       <Content>
-        <View style={{ gap: 8, flexDirection: 'row' }}>
+        <TagWrapper>
           {tags.map((tag, idx) => (
-            <Tags key={idx} text={tag} />
+            <Tags key={idx} text={tag} onPressTag={() => handleTagDelete(idx)} />
           ))}
-        </View>
+        </TagWrapper>
         <InputWrapper hasTags={tags.length > 0}>
           <Input
             placeholder={placeholder}
@@ -31,7 +34,7 @@ const InputField = ({ placeholder, value, onChangeValue, style }) => {
             value={value}
             onChangeText={text => onChangeValue(text)}
             style={style}
-            onEndEditing={handleTag}
+            onEndEditing={handleTagAdd}
           />
         </InputWrapper>
       </Content>
@@ -46,9 +49,11 @@ const Container = styled(View)`
   height: ${size.height * 58}px;
   border-width: 1px;
   border-bottom-color: ${colors.orange};
+  overflow: hidden;
 `;
 
 const Content = styled(View)`
+  height: ${size.height * 42}px;
   flex-direction: row;
   align-items: center;
 `;
@@ -61,4 +66,9 @@ const Input = styled(TextInput)`
   font-family: ${body1.medium.fontFamily};
   font-size: ${body1.medium.fontSize}px;
   color: white;
+`;
+
+const TagWrapper = styled(View)`
+  flex-direction: row;
+  gap: ${size.width * 8}px;
 `;
