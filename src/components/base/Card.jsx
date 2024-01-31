@@ -8,7 +8,11 @@ import { colors } from '../../styles/colors';
 
 const Card = ({ title = '', numberOfLinks = 0, onPress, isSelected }) => {
   const handleSliceText = () => {
-    return title.length > 14 ? title.slice(0, 14) + '...' : title.length;
+    return title.length > 16 ? title.slice(0, 16) + '...' : title;
+  };
+
+  const handleSliceLink = () => {
+    return numberOfLinks.length > 999 ? '999+' : numberOfLinks;
   };
 
   return (
@@ -16,7 +20,7 @@ const Card = ({ title = '', numberOfLinks = 0, onPress, isSelected }) => {
       <ImageBox source={require('../../assets/images/logo.png')} />
       <TextWrapper>
         <Title>{handleSliceText()}</Title>
-        <Subtitle>{numberOfLinks}개의 링크</Subtitle>
+        <Subtitle>{handleSliceLink()}개의 링크</Subtitle>
       </TextWrapper>
       {isSelected && (
         <SelectBox>

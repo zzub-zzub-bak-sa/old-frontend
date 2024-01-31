@@ -7,9 +7,13 @@ import IcClear from '../../assets/icons/IcClear';
 import { body1 } from '../../styles/fonts';
 
 const Tags = ({ text, onPressTag, style }) => {
+  const handleSliceText = () => {
+    return text.length > 7 ? text.slice(0, 7) + '...' : text;
+  };
+
   return (
     <TagWrapper onPress={onPressTag} style={style}>
-      <TagText>{text}</TagText>
+      <TagText>{handleSliceText()}</TagText>
       <IcClear size={20} color={'white'} />
     </TagWrapper>
   );
