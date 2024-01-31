@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import size from '../../utils/size';
 import { colors } from '../../styles/colors';
 import IcClear from '../../assets/icons/IcClear';
+import { body1 } from '../../styles/fonts';
 
-const Tags = ({ text, onPressChip, style }) => {
+const Tags = ({ text, onPressTag, style }) => {
   return (
-    <TagWrapper onPress={onPressChip} style={style}>
+    <TagWrapper onPress={onPressTag} style={style}>
       <TagText>{text}</TagText>
       <IcClear size={20} color={'white'} />
     </TagWrapper>
@@ -30,5 +31,7 @@ const TagWrapper = styled(TouchableOpacity)`
 `;
 
 const TagText = styled(Text)`
+  font-family: ${body1.medium.fontFamily};
+  font-size: ${body1.medium.fontSize};
   color: white;
 `;
