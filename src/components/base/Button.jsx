@@ -98,8 +98,8 @@ const ButtonWrapper = styled(TouchableOpacity)`
   flex-direction: row;
   justify-content: center;
   gap: ${size.width * 4}px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: ${size.height * 16}px;
+  padding-bottom: ${size.height * 16}px;
 `;
 
 const ButtonText = styled(Text)(props => ({
