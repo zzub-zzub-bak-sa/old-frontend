@@ -47,7 +47,7 @@ export default InputField;
 const Container = styled(View)`
   width: '100%';
   height: ${size.height * 58}px;
-  border-width: 1px;
+  border-bottom-width: 1px;
   border-bottom-color: ${colors.orange};
   overflow: hidden;
 `;
