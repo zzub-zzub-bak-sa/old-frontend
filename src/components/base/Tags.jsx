@@ -2,18 +2,14 @@ import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import styled from 'styled-components';
 import size from '../../utils/size';
+import { colors } from '../../styles/colors';
+import IcClear from '../../assets/icons/IcClear';
 
-const Tags = ({ text, width, height, radius, bgColor, textColor, onPressChip, style }) => {
+const Tags = ({ text, onPressChip, style }) => {
   return (
-    <TagWrapper
-      width={width || 80}
-      height={height || 36}
-      radius={radius || 0}
-      bgColor={bgColor}
-      onPress={onPressChip}
-      style={style}
-    >
-      <TagText textColor={textColor}>{text}</TagText>
+    <TagWrapper onPress={onPressChip} style={style}>
+      <TagText>{text}</TagText>
+      <IcClear size={20} color={'white'} />
     </TagWrapper>
   );
 };
@@ -21,16 +17,18 @@ const Tags = ({ text, width, height, radius, bgColor, textColor, onPressChip, st
 export default Tags;
 
 const TagWrapper = styled(TouchableOpacity)`
-  width: ${({ width }) => size.width * width}%;
-  height: ${({ height }) => size.height * height}%;
-  border-radius: ${({ radius }) => size.height * radius};
-  background-color: ${({ bgColor }) => bgColor};
+  height: ${size.height * 40}px;
+  border-radius: 8px;
+  background-color: ${colors.orange};
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: ${size.width * 8}px;
+  padding: ${size.height * 8}px ${size.width * 12}px;
   ${({ style }) => style};
 `;
 
 const TagText = styled(Text)`
-  color: ${({ textColor }) => textColor};
+  color: white;
 `;
