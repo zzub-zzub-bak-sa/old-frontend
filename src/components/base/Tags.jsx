@@ -3,9 +3,9 @@ import { TouchableOpacity, Text } from 'react-native';
 import styled from 'styled-components';
 import size from '../../utils/size';
 
-const Chip = ({ text, width, height, radius, bgColor, textColor, onPressChip, style }) => {
+const Tags = ({ text, width, height, radius, bgColor, textColor, onPressChip, style }) => {
   return (
-    <ChipWrapper
+    <TagWrapper
       width={width || 80}
       height={height || 36}
       radius={radius || 0}
@@ -13,14 +13,14 @@ const Chip = ({ text, width, height, radius, bgColor, textColor, onPressChip, st
       onPress={onPressChip}
       style={style}
     >
-      <ChipText textColor={textColor}>{text}</ChipText>
-    </ChipWrapper>
+      <TagText textColor={textColor}>{text}</TagText>
+    </TagWrapper>
   );
 };
 
-export default Chip;
+export default Tags;
 
-const ChipWrapper = styled(TouchableOpacity)`
+const TagWrapper = styled(TouchableOpacity)`
   width: ${({ width }) => size.width * width}%;
   height: ${({ height }) => size.height * height}%;
   border-radius: ${({ radius }) => size.height * radius};
@@ -31,6 +31,6 @@ const ChipWrapper = styled(TouchableOpacity)`
   ${({ style }) => style};
 `;
 
-const ChipText = styled(Text)`
+const TagText = styled(Text)`
   color: ${({ textColor }) => textColor};
 `;
