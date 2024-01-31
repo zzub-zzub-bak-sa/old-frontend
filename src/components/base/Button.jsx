@@ -24,46 +24,54 @@ const Button = ({
     switch (color) {
       case 'primary':
         if (varient === 'outlined') {
-          return setStyle({ borderColor: colors.orange, bgColor: '', textColor: colors.orange });
+          return setStyle({
+            borderColor: colors.orange,
+            bgColor: 'transparent',
+            textColor: colors.orange,
+          });
         } else if (varient === 'filled') {
           return setStyle({
             borderColor: colors.orange,
             bgColor: colors.orange,
-            textColor: '#fff',
+            textColor: 'white',
           });
         } else if (varient === 'none') {
           return setStyle({
-            borderColor: '',
-            bgColor: '',
+            borderColor: 'transparent',
+            bgColor: 'transparent',
             textColor: colors.orange,
           });
         }
       case 'disable':
         if (varient === 'outlined') {
-          return setStyle({ borderColor: colors.grey[100], bgColor: '', textColor: '#fff' });
+          return setStyle({
+            borderColor: colors.grey[100],
+            bgColor: 'transparent',
+            textColor: 'white',
+          });
         } else if (varient === 'filled') {
           return setStyle({
             borderColor: color.grey[100],
             bgColor: color.grey[100],
-            textColor: '#fff',
+            textColor: 'white',
           });
         } else if (varient === 'none') {
           return setStyle({
-            borderColor: '',
-            bgColor: '',
-            textColor: '#fff',
+            borderColor: 'transparent',
+            bgColor: 'transparent',
+            textColor: 'white',
           });
         }
       case 'default':
-        if (varied === 'outlined') {
-          return setStyle({ borderColor: '#fff', bgColor: '', textColor: '#fff' });
-        } else if (varied === 'filled') {
-          return setStyle({ borderColor: '#fff', bgColor: '#fff', textColor: colors.black });
+        if (varient === 'outlined') {
+          return setStyle({ borderColor: 'white', bgColor: 'transparent', textColor: 'white' });
+        } else if (varient === 'filled') {
+          return setStyle({ borderColor: 'white', bgColor: 'white', textColor: colors.black });
         } else if (varient === 'none') {
           return setStyle({
-            borderColor: '',
-            bgColor: '',
-            textColor: '#fff',
+            borderColor: 'transparent',
+            bgColor: 'transparent',
+            textColor: 'white',
           });
         }
     }
