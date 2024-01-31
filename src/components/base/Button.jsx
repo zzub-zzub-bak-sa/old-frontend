@@ -11,6 +11,7 @@ const Button = ({
   varient = 'outlined' | 'filled' | 'none',
   color = 'primary' | 'default' | 'disable',
   text,
+  renderIcon = () => null,
   onPress,
 }) => {
   const [style, setStyle] = useState({
@@ -70,6 +71,7 @@ const Button = ({
 
   return (
     <ButtonWrapper width={width} height={height | 54} onPress={onPress} buttonStyle={style}>
+      {renderIcon()}
       <ButtonText height={height} buttonStyle={style}>
         {text}
       </ButtonText>
@@ -85,7 +87,9 @@ const ButtonWrapper = styled(TouchableOpacity)`
   background-color: ${({ buttonStyle }) => buttonStyle.bgColor};
   border: 1px solid ${({ buttonStyle }) => buttonStyle.borderColor};
   border-radius: 12px;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: ${size.width * 4}px;
   padding-top: 16px;
   padding-bottom: 16px;
 `;
